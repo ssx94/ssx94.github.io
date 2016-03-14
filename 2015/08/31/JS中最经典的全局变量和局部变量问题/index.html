@@ -63,7 +63,7 @@
 <meta property="og:url" content="http://www.sunyuxin.com/2015/08/31/JS中最经典的全局变量和局部变量问题/index.html">
 <meta property="og:site_name" content="sun++ blog">
 <meta property="og:description" content="摘要：面试的时候有些会问到的基础题。">
-<meta property="og:updated_time" content="2016-03-14T07:28:58.147Z">
+<meta property="og:updated_time" content="2016-03-14T08:56:27.371Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="JS中最经典的全局变量和局部变量问题">
 <meta name="twitter:description" content="摘要：面试的时候有些会问到的基础题。">
@@ -290,17 +290,37 @@
 
       
         <p>摘要：面试的时候有些会问到的基础题。<br><a id="more"></a></p>
-<p>##题目1：<br>    var a = 10;<br>    function test(){<br>        a = 100;<br>        console.log(a);<br>        console.log(this.a);<br>        var a;<br>        console.log(a);<br>    }<br>    test();</p>
-<p>运行结果为：100  10  100</p>
+<h2 id="题目1："><a href="#题目1：" class="headerlink" title="题目1："></a>题目1：</h2><pre><code>var a = 10;
+function test(){
+    a = 100;
+    console.log(a);
+    console.log(this.a);
+    var a;
+    console.log(a);
+}
+test();
+</code></pre><p>运行结果为：100  10  100</p>
 <p>解析：Javascript在执行前会对整个脚本文件的声明部分做完整分析(包括局部变量)，从而确定变量的作用域，所以在函数test执行前，由于第6行声明了局部变量a，所以函数内部的a都指向已经声明的局部变量，所以第4行输出100。第5行输出this.a，我们都知道，函数内部的this指针指向的是函数的调用者，在这里函数test被全局对象调用，所以this指针指向全局对象（这里即window），所以this.a = window.a，一开始生命了全局变量a=10，所以第5行输出结果为10。第7行输出结果为100，因为局部变量a在第3行已经被赋值了100，所以直接输出局部变量a的值。</p>
-<p>##题目2：<br>    var a = 100;<br>    function test(){<br>        console.log(a);<br>        var a = 10;<br>        console.log(a);<br>    }<br>    test();</p>
-<p>运行结果为：undefined  10</p>
+<h2 id="题目2："><a href="#题目2：" class="headerlink" title="题目2："></a>题目2：</h2><pre><code>var a = 100;
+function test(){
+    console.log(a);
+    var a = 10;
+    console.log(a);
+}
+test();
+</code></pre><p>运行结果为：undefined  10</p>
 <p>解析：看了第1个例子，可能有同学会认为输出结果是10  10，但是结果却不是10 10，为什么呢？仔细看第1个例子解析的第一句话，Javascript在执行前会对整个脚本文件的声明部分做完整分析(包括局部变量)，但是不能对变量定义做提前解析，在这个函数中，执行第3行前，可以认为已经声明了变量a，但是并没有定义（这里即赋值），所以第3行输出结果为undefined，执行第4行a =10后，变量a的值就为10，所以第5行输出结果为10。</p>
-<p>##题目3：<br>    var a = 100;<br>    function test(){<br>        console.log(a);<br>        a = 10;<br>        console.log(a);<br>    }<br>    test();<br>    console.log(a);</p>
-<p>运行结果为：100  10  10</p>
+<h2 id="题目3："><a href="#题目3：" class="headerlink" title="题目3："></a>题目3：</h2><pre><code>var a = 100;
+function test(){
+    console.log(a);
+    a = 10;
+    console.log(a);
+}
+test();
+console.log(a);
+</code></pre><p>运行结果为：100  10  10</p>
 <p>解析：我们知道在函数内部，一般用var声明的为局部变量，没用var声明的一般为全局变量，在test函数内，a=10声明了一个全局变量，所以第3行的a应该输出全局变量的值，而在函数执行之前已经声明过一个全局变量并赋值100，所以这里第上输出100。第4行给全局变量a 重新赋值10，所以全局变量a的值变成10，所以第5行输出10。而在函数test外部，第8行输出全局变量a的值，因为全局变量被重新赋值为10，所以输出结果即为10。</p>
-<p>##如有错误的地方欢迎批评指正。</p>
-
+<h2 id="如有错误的地方欢迎批评指正。"><a href="#如有错误的地方欢迎批评指正。" class="headerlink" title="如有错误的地方欢迎批评指正。"></a>如有错误的地方欢迎批评指正。</h2>
       
     </div>
 
@@ -434,7 +454,7 @@
           
             <div class="site-state-item site-state-categories">
               <a href="/categories">
-                <span class="site-state-item-count">1</span>
+                <span class="site-state-item-count">4</span>
                 <span class="site-state-item-name">分类</span>
               </a>
             </div>
@@ -443,7 +463,7 @@
           
             <div class="site-state-item site-state-tags">
               <a href="/tags">
-                <span class="site-state-item-count">2</span>
+                <span class="site-state-item-count">13</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>
@@ -476,7 +496,7 @@
               
             
             
-              <p class="post-toc-empty">此文章未包含目录</p>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#题目1："><span class="nav-number">1.</span> <span class="nav-text">题目1：</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#题目2："><span class="nav-number">2.</span> <span class="nav-text">题目2：</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#题目3："><span class="nav-number">3.</span> <span class="nav-text">题目3：</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#如有错误的地方欢迎批评指正。"><span class="nav-number">4.</span> <span class="nav-text">如有错误的地方欢迎批评指正。</span></a></li></ol></div>
             
           </div>
           <div class="post-toc-indicator-bottom post-toc-indicator">

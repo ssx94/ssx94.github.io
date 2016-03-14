@@ -41,7 +41,7 @@
 <link href="/css/main.css?v=0.5.0" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="sun++" />
+  <meta name="keywords" content="apache,iis,服务器搭建," />
 
 
 
@@ -63,7 +63,7 @@
 <meta property="og:url" content="http://www.sunyuxin.com/2015/07/01/apache转发实现iis和apache共享80端口/index.html">
 <meta property="og:site_name" content="sun++ blog">
 <meta property="og:description" content="摘要：因为只有一台服务器(win2003 server) 既需要在上面跑asp程序 又需要在上面跑php应用 又不想用iis跑php应用 还有就是不想把asp程序跑在apache上 就需要一个apache与iis共存的方案">
-<meta property="og:updated_time" content="2016-03-11T03:22:07.631Z">
+<meta property="og:updated_time" content="2016-03-14T09:01:28.009Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="apache转发实现iis和apache共享80端口">
 <meta name="twitter:description" content="摘要：因为只有一台服务器(win2003 server) 既需要在上面跑asp程序 又需要在上面跑php应用 又不想用iis跑php应用 还有就是不想把asp程序跑在apache上 就需要一个apache与iis共存的方案">
@@ -242,6 +242,25 @@
           </span>
 
           
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/服务器环境搭建/" itemprop="url" rel="index">
+                    <span itemprop="name">服务器环境搭建</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
 
           
             
@@ -272,9 +291,13 @@
       
         <p>摘要：因为只有一台服务器(win2003 server) 既需要在上面跑asp程序 又需要在上面跑php应用 又不想用iis跑php应用 还有就是不想把asp程序跑在apache上 就需要一个apache与iis共存的方案</p>
 <a id="more"></a>
-<p>iis是windows2003 server自带的iis6.0<br>apache是apache2.2.8<br>首先当然是下载并安装apache<br>接着开始先把自动启动的iis服务器停下来，修改iis的端口为非80(比如8081)<br>再接着打开apache的httpd.conf文件开始配置<br>要让apache支持转发也就是做iis的代理那么就要先启用apache的代理模块：<br>LoadModule proxy_module modules/mod_proxy.so<br>LoadModule proxy_connect_module modules/mod_proxy_connect.so<br>LoadModule proxy_ftp_module modules/mod_proxy_ftp.so<br>LoadModule proxy_http_module modules/mod_proxy_http.so<br>保存httpd.conf<br>完成了代理模块的启用 那么我们开始配置虚拟主机<br>打开httpd-vhosts.conf文件<br>NameVirtualHost *:80</p>
-<p><virtualhost *:80=""><br>    ServerAdmin b@b.com<br>    ServerName    www.b.com<br>    DocumentRoot “C:/Program Files/Apache Software Foundation/Apache2.2/htdocs”<br></virtualhost></p>
-<p><virtualhost *:80=""><br>    ProxyPreserveHost On<br>    ServerAdmin a@a.com<br>    ServerName www.a.com<br>    DefaultLanguage zh-CN<br>    AddDefaultCharset GB2312<br>    ProxyPass / <a href="http://www.a.com:8081/" target="_blank" rel="external">http://www.a.com:8081/</a><br>    ProxyPassReverse / <a href="http://www.a.com:8081/" target="_blank" rel="external">http://www.a.com:8081/</a><br></virtualhost><br>配置完成并保存httpd-vhosts.conf<br>开始重启apache服务器和iis服务器<br>我们通过www.a.com 访问过去就会看到iis的默认页面<br>通过www.b.com 访问过去就可以看到it’s work。<br>这样我们就实现了iis和apache共享80端口</p>
+<p>iis是windows2003 server自带的iis6.0<br>apache是apache2.2.8<br>首先当然是下载并安装apache<br>接着开始先把自动启动的iis服务器停下来，修改iis的端口为非80(比如8081)<br>再接着打开apache的httpd.conf文件开始配置<br>要让apache支持转发也就是做iis的代理那么就要先启用apache的代理模块：</p>
+<p>LoadModule proxy_module modules/mod_proxy.so<br>LoadModule proxy_connect_module modules/mod_proxy_connect.so<br>LoadModule proxy_ftp_module modules/mod_proxy_ftp.so<br>LoadModule proxy_http_module modules/mod_proxy_http.so</p>
+<p>保存httpd.conf<br>完成了代理模块的启用 那么我们开始配置虚拟主机<br>打开httpd-vhosts.conf文件</p>
+<p>NameVirtualHost *:80</p>
+<virtualhost *:80=""><br>    ServerAdmin b@b.com<br>    ServerName    www.b.com<br>    DocumentRoot “C:/Program Files/Apache Software Foundation/Apache2.2/htdocs”<br></virtualhost><br><virtualhost *:80=""><br>    ProxyPreserveHost On<br>    ServerAdmin a@a.com<br>    ServerName www.a.com<br>    DefaultLanguage zh-CN<br>    AddDefaultCharset GB2312<br>    ProxyPass / <a href="http://www.a.com:8081/" target="_blank" rel="external">http://www.a.com:8081/</a><br>    ProxyPassReverse / <a href="http://www.a.com:8081/" target="_blank" rel="external">http://www.a.com:8081/</a><br></virtualhost>
+
+<p>配置完成并保存httpd-vhosts.conf<br>开始重启apache服务器和iis服务器<br>我们通过www.a.com 访问过去就会看到iis的默认页面<br>通过www.b.com 访问过去就可以看到it’s work。<br>这样我们就实现了iis和apache共享80端口</p>
 <p>转载自：<a href="http://blog.csdn.net/liu_xing_hui/article/details/5025778" target="_blank" rel="external">http://blog.csdn.net/liu_xing_hui/article/details/5025778</a></p>
 
       
@@ -287,6 +310,16 @@
     </div>
 
     <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/apache/" rel="tag">#apache</a>
+          
+            <a href="/tags/iis/" rel="tag">#iis</a>
+          
+            <a href="/tags/服务器搭建/" rel="tag">#服务器搭建</a>
+          
+        </div>
       
 
       
@@ -402,7 +435,7 @@
           
             <div class="site-state-item site-state-categories">
               <a href="/categories">
-                <span class="site-state-item-count">1</span>
+                <span class="site-state-item-count">4</span>
                 <span class="site-state-item-name">分类</span>
               </a>
             </div>
@@ -411,7 +444,7 @@
           
             <div class="site-state-item site-state-tags">
               <a href="/tags">
-                <span class="site-state-item-count">2</span>
+                <span class="site-state-item-count">13</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>
