@@ -57,19 +57,16 @@
 
 
 
-<meta name="description" content="Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub.
-Quick">
+<meta name="description" content="摘要：本地搭建wamp，输入http://127.0.0.1访问正常，当输入http://localhost/，apache出现You don’t have permission to access/on this server.的提示，如何解决？">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Hello World">
-<meta property="og:url" content="http://yoursite.com/2016/03/11/hello-world/index.html">
+<meta property="og:title" content="wamp出现You don’t have permission to access/on this server提示">
+<meta property="og:url" content="http://yoursite.com/2015/07/01/wamp出现You don’t have permission to accesson this server提示/index.html">
 <meta property="og:site_name" content="Hexo">
-<meta property="og:description" content="Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub.
-Quick">
-<meta property="og:updated_time" content="2016-03-11T07:58:13.597Z">
+<meta property="og:description" content="摘要：本地搭建wamp，输入http://127.0.0.1访问正常，当输入http://localhost/，apache出现You don’t have permission to access/on this server.的提示，如何解决？">
+<meta property="og:updated_time" content="2016-03-11T03:22:24.985Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Hello World">
-<meta name="twitter:description" content="Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub.
-Quick">
+<meta name="twitter:title" content="wamp出现You don’t have permission to access/on this server提示">
+<meta name="twitter:description" content="摘要：本地搭建wamp，输入http://127.0.0.1访问正常，当输入http://localhost/，apache出现You don’t have permission to access/on this server.的提示，如何解决？">
 
 
 
@@ -87,7 +84,7 @@ Quick">
   };
 </script>
 
-  <title> Hello World | Hexo </title>
+  <title> wamp出现You don’t have permission to access/on this server提示 | Hexo </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -207,7 +204,7 @@ Quick">
             
             
               
-                Hello World
+                wamp出现You don’t have permission to access/on this server提示
               
             
           </h1>
@@ -219,8 +216,8 @@ Quick">
               <i class="fa fa-calendar-o"></i>
             </span>
             <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2016-03-11T15:58:13+08:00" content="2016-03-11">
-              2016-03-11
+            <time itemprop="dateCreated" datetime="2015-07-01T11:12:27+08:00" content="2015-07-01">
+              2015-07-01
             </time>
           </span>
 
@@ -246,15 +243,29 @@ Quick">
       
 
       
-        <p>Welcome to <a href="https://hexo.io/" target="_blank" rel="external">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="external">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="external">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="external">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">"My New Post"</span></span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="external">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="external">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="external">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/deployment.html" target="_blank" rel="external">Deployment</a></p>
+        <p>摘要：本地搭建wamp，输入<a href="http://127.0.0.1访问正常，当输入http://localhost/，apache出现You" target="_blank" rel="external">http://127.0.0.1访问正常，当输入http://localhost/，apache出现You</a> don’t have permission to access/on this server.的提示，如何解决？</p>
+<a id="more"></a>
+<p>找到httpd.conf，用记事本打开httpd.conf，然后将</p>
+<pre><code>&lt;Directory /&gt;
+    Options FollowSymLinks
+    AllowOverride None
+    Order deny,allow
+    Deny from all
+&lt;/Directory&gt;
+</code></pre><p>这里改成：</p>
+<pre><code>&lt;Directory /&gt;
+    Options FollowSymLinks
+    AllowOverride None
+    Order deny,allow
+    Allow from all
+&lt;/Directory&gt;
+</code></pre><p>还有一处将下面</p>
+<pre><code># onlineoffline tag - don&apos;t remove
+Order Deny,Allow
+Deny from all  
+Allow from 127.0.0.1
+&lt;/Directory&gt;
+</code></pre><p>将Deny from all  改为：Allow from all  ，然后重新启动所有服务。</p>
 
       
     </div>
@@ -272,13 +283,17 @@ Quick">
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2016/03/11/JS-function/" rel="next" title="JS 函数理解">
-                <i class="fa fa-chevron-left"></i> JS 函数理解
+              <a href="/2015/06/05/IE6下z-index不起作用bug的解决办法/" rel="next" title="IE6下z-index不起作用bug的解决办法">
+                <i class="fa fa-chevron-left"></i> IE6下z-index不起作用bug的解决办法
               </a>
             
           </div>
 
           <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2015/07/01/apache转发实现iis和apache共享80端口/" rel="prev" title="apache转发实现iis和apache共享80端口">
+                apache转发实现iis和apache共享80端口 <i class="fa fa-chevron-right"></i>
+              </a>
             
           </div>
         </div>
@@ -382,7 +397,7 @@ Quick">
               
             
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Quick-Start"><span class="nav-number">1.</span> <span class="nav-text">Quick Start</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Create-a-new-post"><span class="nav-number">1.1.</span> <span class="nav-text">Create a new post</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Run-server"><span class="nav-number">1.2.</span> <span class="nav-text">Run server</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Generate-static-files"><span class="nav-number">1.3.</span> <span class="nav-text">Generate static files</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Deploy-to-remote-sites"><span class="nav-number">1.4.</span> <span class="nav-text">Deploy to remote sites</span></a></li></ol></li></ol></div>
+              <p class="post-toc-empty">此文章未包含目录</p>
             
           </div>
           <div class="post-toc-indicator-bottom post-toc-indicator">

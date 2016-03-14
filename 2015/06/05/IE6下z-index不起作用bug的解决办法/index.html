@@ -57,19 +57,16 @@
 
 
 
-<meta name="description" content="Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub.
-Quick">
+<meta name="description" content="摘要：今天做页面的时候突然碰到IE6下z-index不起作用，之前一直没关注过这个问题，经过几翻折腾终于知道问题所在。">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Hello World">
-<meta property="og:url" content="http://yoursite.com/2016/03/11/hello-world/index.html">
+<meta property="og:title" content="IE6下z-index不起作用bug的解决办法">
+<meta property="og:url" content="http://yoursite.com/2015/06/05/IE6下z-index不起作用bug的解决办法/index.html">
 <meta property="og:site_name" content="Hexo">
-<meta property="og:description" content="Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub.
-Quick">
-<meta property="og:updated_time" content="2016-03-11T07:58:13.597Z">
+<meta property="og:description" content="摘要：今天做页面的时候突然碰到IE6下z-index不起作用，之前一直没关注过这个问题，经过几翻折腾终于知道问题所在。">
+<meta property="og:updated_time" content="2016-03-11T03:22:22.788Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Hello World">
-<meta name="twitter:description" content="Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub.
-Quick">
+<meta name="twitter:title" content="IE6下z-index不起作用bug的解决办法">
+<meta name="twitter:description" content="摘要：今天做页面的时候突然碰到IE6下z-index不起作用，之前一直没关注过这个问题，经过几翻折腾终于知道问题所在。">
 
 
 
@@ -87,7 +84,7 @@ Quick">
   };
 </script>
 
-  <title> Hello World | Hexo </title>
+  <title> IE6下z-index不起作用bug的解决办法 | Hexo </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -207,7 +204,7 @@ Quick">
             
             
               
-                Hello World
+                IE6下z-index不起作用bug的解决办法
               
             
           </h1>
@@ -219,8 +216,8 @@ Quick">
               <i class="fa fa-calendar-o"></i>
             </span>
             <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2016-03-11T15:58:13+08:00" content="2016-03-11">
-              2016-03-11
+            <time itemprop="dateCreated" datetime="2015-06-05T19:12:27+08:00" content="2015-06-05">
+              2015-06-05
             </time>
           </span>
 
@@ -246,15 +243,39 @@ Quick">
       
 
       
-        <p>Welcome to <a href="https://hexo.io/" target="_blank" rel="external">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="external">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="external">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="external">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">"My New Post"</span></span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="external">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="external">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="external">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/deployment.html" target="_blank" rel="external">Deployment</a></p>
+        <p>摘要：今天做页面的时候突然碰到IE6下z-index不起作用，之前一直没关注过这个问题，经过几翻折腾终于知道问题所在。</p>
+<a id="more"></a>
+<p>之前对于CSS中层级z-index的定义，一直以为z-index的值越高，越在上面显示，如果层发生重叠，层级高的会覆盖层级低的，确实，在大部分的浏览器在大部分的情况下，确实如此，但是遇到IE6，z-index有时就不起作用了。</p>
+<p>##示例1：</p>
+<pre><code>&lt;div style=&quot;width:300px; height:300px; background:#000; color#fff; position:absolute; left:0; top:0; z-index:1;&quot;&gt;内容1&lt;/div&gt;
+&lt;div style=&quot;position:relative;&quot;&gt;
+    &lt;div style=&quot;position:absolute; z-index: 9999; width:200px; height: 200px; background:#fff&quot;&gt;内容2&lt;/div&gt;
+&lt;/div&gt;
+</code></pre><p>结果:内容2被内容1盖住了。</p>
+<p>解决方法：内容2的父标签添加z-index属性，值大于1</p>
+<p>##示例2：</p>
+<pre><code>&lt;div style=&quot;width:300px; height:300px; background:#000; color:#fff; position:absolute; left:0; top:0; z-index:1;&quot;&gt;内容1&lt;/div&gt;
+&lt;div style=&quot;position:relative; z-index: 9999;&quot;&gt;
+    &lt;div style=&quot; float: left; width:200px; height: 200px; background:#fff&quot;&gt;内容2&lt;/div&gt;
+&lt;/div&gt;
+</code></pre><p>结果:内容2被内容1盖住了。</p>
+<p>解决方法：<br>1、去掉内容2的float属性<br>2、把内容2的父标签position属性值设为absolute</p>
+<p>从以上两个例子能看出，这种情况发生的条件有三个：1、父标签position属性为relative；2、问题标签无position属性；3、问题标签含有浮动(float)属性。</p>
+<p>解决方法：<br>1、position:relative改为position:absolute；<br>2、去除浮动；<br>3、浮动元素添加position属性（如relative，absolute）。</p>
+<p>还有一种情况，可能平时我们写页面时会这样写，看下面例子</p>
+<p>##示例3：</p>
+<pre><code>&lt;div style=&quot;width:300px; height:300px; background:#000; color:#fff; position:absolute; left:0; top:0; z-index:1;&quot;&gt;内容1&lt;/div&gt;
+&lt;div style=&quot;position:relative;&quot;&gt;
+    &lt;div style=&quot;position:relative; z-index:1000;&quot;&gt;
+        &lt;div style=&quot;width:200px; height:200px; position:absolute; z-index:9999;&quot;&gt;
+            这里是内容2
+        &lt;/div&gt;
+    &lt;/div&gt;
+&lt;/div&gt;
+</code></pre><p>结果:内容2还是被内容1盖住了</p>
+<p>解决方法：给内容2最外层relative属性的父标签增加z-index属性，值大于或等1</p>
+<p>#总结：</p>
+<p>可能不少人知道，这IE6下，层级的高低不仅要看自己，还要看自己的老爸这个后台是否够硬。用术语具体描述为：<br>父标签position属性为relative或absolute时，子标签的absolute属性是相对于父标签而言的。而在IE6下，层级的表现有时候不是看子标签的z-index多高，而要看它们的父标签的z-index谁高谁低。<br>有一定经验的人可能都知道上面的事实。但是，相信这里面很多人不知道IE6下，决定层级高低的不是当前的父标签，而是整个DOM tree（节点树）的第一个relative属性的父标签。有时平时我们多处理一个父标签，z-index层级多而复杂的情况不多见，所以难免会有认识上的小小偏差。</p>
 
       
     </div>
@@ -272,13 +293,17 @@ Quick">
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2016/03/11/JS-function/" rel="next" title="JS 函数理解">
-                <i class="fa fa-chevron-left"></i> JS 函数理解
+              <a href="/2015/05/25/hexo+github搭建教程/" rel="next" title="hexo+github搭建教程">
+                <i class="fa fa-chevron-left"></i> hexo+github搭建教程
               </a>
             
           </div>
 
           <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2015/07/01/wamp出现You don’t have permission to accesson this server提示/" rel="prev" title="wamp出现You don’t have permission to access/on this server提示">
+                wamp出现You don’t have permission to access/on this server提示 <i class="fa fa-chevron-right"></i>
+              </a>
             
           </div>
         </div>
@@ -382,7 +407,7 @@ Quick">
               
             
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Quick-Start"><span class="nav-number">1.</span> <span class="nav-text">Quick Start</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Create-a-new-post"><span class="nav-number">1.1.</span> <span class="nav-text">Create a new post</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Run-server"><span class="nav-number">1.2.</span> <span class="nav-text">Run server</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Generate-static-files"><span class="nav-number">1.3.</span> <span class="nav-text">Generate static files</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Deploy-to-remote-sites"><span class="nav-number">1.4.</span> <span class="nav-text">Deploy to remote sites</span></a></li></ol></li></ol></div>
+              <p class="post-toc-empty">此文章未包含目录</p>
             
           </div>
           <div class="post-toc-indicator-bottom post-toc-indicator">
